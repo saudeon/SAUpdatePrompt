@@ -9,7 +9,27 @@ final class NetworkTests: XCTestCase {
     }
   }
   
-  func testVersionCheck() {
+  func testBundleIdentifierDoesNotExist() {
+    
+    let checkExpectation = expectation(description: "Waiting for failure result.")
+    
+    Network.check(for: "com.laudeon.Sage",
+                  currentVersion: "1.0.0") { result in
+      switch result {
+      case let .failure(error):
+        switch error {
+        case .noResults: checkExpectation.fulfill()
+        default: return
+        }
+      default: return
+      }
+    }
+    
+    waitForExpectations(timeout: 5, handler: defaultExpectationHandler)
+    
+  }
+  
+  func testCurrentVersionIsLessThanAvailable() {
     
     let checkExpectation = expectation(description: "Waiting for check result")
     

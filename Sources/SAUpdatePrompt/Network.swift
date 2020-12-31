@@ -11,11 +11,16 @@ fileprivate struct BundleLookupResponse: Codable {
   let results: [StoreResult]
 }
 
+internal enum NetworkError: LocalizedError {
+  case generic(Error)
+  case noResults
+}
+
 internal enum Network {
  
   static func check(for bundleIdentifier: String,
                     currentVersion: String,
-                    completion: @escaping (Result<(Bool, String?), Error>) -> Void) {
+                    completion: @escaping (Result<(Bool, String?), NetworkError>) -> Void) {
     
     guard let lookupUrl = URL(string: "https://itunes.apple.com/lookup?bundleId=\(bundleIdentifier)") else { return }
     
@@ -26,7 +31,7 @@ internal enum Network {
       
       if let error = error {
         // We want to return a failure to completion handler.
-        completion(.failure(error))
+        completion(.failure(.generic(error)))
         return
       }
       
@@ -34,17 +39,31 @@ internal enum Network {
         do {
           let response = try JSONDecoder().decode(BundleLookupResponse.self, from: data)
           
+          // TODO: Provide better contextual error handling.
+          guard response.resultCount >= 1, response.results.count > 0 else {
+            completion(.failure(.noResults))
+            return
+          }
+          
+          // If we have more than one match for the bundle identifier, we want to get the correct application.
+          guard let storeResult = response.results.first(where: { result in
+            return result.bundleId == bundleIdentifier
+          }) else {
+            completion(.failure(.noResults))
+            return
+          }
+          
           func compareNumeric(_ version1: String, _ version2: String) -> ComparisonResult {
             return version1.compare(version2, options: .numeric)
           }
           
-          switch compareNumeric(currentVersion, response.results[0].version) {
-          case .orderedAscending: completion(.success((true, response.results[0].version)))
+          switch compareNumeric(currentVersion, storeResult.version) {
+          case .orderedAscending: completion(.success((true, storeResult.version)))
           case .orderedDescending, .orderedSame: completion(.success((false, nil)))
           }
           
         } catch let error {
-          completion(.failure(error))
+          completion(.failure(.generic(error)))
         }
       }
       
