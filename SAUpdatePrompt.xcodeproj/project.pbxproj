@@ -21,8 +21,9 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		70470EF4259E791700C8FC12 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70470EF3259E791700C8FC12 /* Network.swift */; };
-		70470F07259E7AD500C8FC12 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70470EF9259E7A7F00C8FC12 /* NetworkTests.swift */; };
+		70470F07259E7AD500C8FC12 /* AppVersionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70470EF9259E7A7F00C8FC12 /* AppVersionServiceTests.swift */; };
+		70470F0D259E929400C8FC12 /* AppVersionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70470F0C259E929400C8FC12 /* AppVersionService.swift */; };
+		70470F13259E931900C8FC12 /* AppVersionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70470F12259E931900C8FC12 /* AppVersionResponse.swift */; };
 		OBJ_24 /* SAUpdatePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* SAUpdatePrompt.swift */; };
 		OBJ_31 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_42 /* SAUpdatePromptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* SAUpdatePromptTests.swift */; };
@@ -48,8 +49,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		70470EF3259E791700C8FC12 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		70470EF9259E7A7F00C8FC12 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
+		70470EF9259E7A7F00C8FC12 /* AppVersionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionServiceTests.swift; sourceTree = "<group>"; };
+		70470F0C259E929400C8FC12 /* AppVersionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionService.swift; sourceTree = "<group>"; };
+		70470F12259E931900C8FC12 /* AppVersionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionResponse.swift; sourceTree = "<group>"; };
 		OBJ_12 /* SAUpdatePromptTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAUpdatePromptTests.swift; sourceTree = "<group>"; };
 		OBJ_13 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_17 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -90,7 +92,7 @@
 		OBJ_11 /* SAUpdatePromptTests */ = {
 			isa = PBXGroup;
 			children = (
-				70470EF9259E7A7F00C8FC12 /* NetworkTests.swift */,
+				70470EF9259E7A7F00C8FC12 /* AppVersionServiceTests.swift */,
 				OBJ_12 /* SAUpdatePromptTests.swift */,
 				OBJ_13 /* XCTestManifests.swift */,
 			);
@@ -132,7 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_9 /* SAUpdatePrompt.swift */,
-				70470EF3259E791700C8FC12 /* Network.swift */,
+				70470F0C259E929400C8FC12 /* AppVersionService.swift */,
+				70470F12259E931900C8FC12 /* AppVersionResponse.swift */,
 			);
 			name = SAUpdatePrompt;
 			path = Sources/SAUpdatePrompt;
@@ -222,7 +225,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				70470EF4259E791700C8FC12 /* Network.swift in Sources */,
+				70470F13259E931900C8FC12 /* AppVersionResponse.swift in Sources */,
+				70470F0D259E929400C8FC12 /* AppVersionService.swift in Sources */,
 				OBJ_24 /* SAUpdatePrompt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,7 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				70470F07259E7AD500C8FC12 /* NetworkTests.swift in Sources */,
+				70470F07259E7AD500C8FC12 /* AppVersionServiceTests.swift in Sources */,
 				OBJ_42 /* SAUpdatePromptTests.swift in Sources */,
 				OBJ_43 /* XCTestManifests.swift in Sources */,
 			);
