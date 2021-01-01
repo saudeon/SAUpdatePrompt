@@ -38,6 +38,20 @@ final class LogicTests: XCTestCase {
     
   }
   
+  func testLogicDisableForceUpgrade() {
+    let testExpectation = expectation(description: "Waiting for soft upgrade prompt after disabling force upgrade")
+    
+    let service = MockAppVersionService(nextVersion: "2.0.0", minimumOsVersion: "13.0")
+    var sut = Logic(service: service)
+    sut.forceMajorUpgrades = false
+    
+    sut.check(for: "com.saupdateprompt.test", currentVersion: "1.0.0") { (available, forceUpgrade) in
+      if available && forceUpgrade == nil { testExpectation.fulfill() }
+    }
+    
+    waitForExpectations(timeout: 5, handler: defaultExpectationHandler)
+  }
+  
   func testLogicSoftUpgrade() {
     
     let testExpectation = expectation(description: "Waiting for soft upgrade")

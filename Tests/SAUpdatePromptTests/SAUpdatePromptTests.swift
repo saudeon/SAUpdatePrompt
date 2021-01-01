@@ -4,7 +4,10 @@ import XCTest
 final class SAUpdatePromptTests: XCTestCase {
   
   func testPromptCreation() {
-    let sut = SAUpdatePrompt()
+    var sut = SAUpdatePrompt()
+    sut.forceMajorUpgrade(false)
+    
+    XCTAssertFalse(sut.logic.forceMajorUpgrades)
     
     sut.showPrompt(title: "Test Prompt", message: "Hello there.") {
       print("derp")

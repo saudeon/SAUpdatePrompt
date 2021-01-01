@@ -5,12 +5,16 @@ public typealias updateAction = (() -> Void)?
 
 public struct SAUpdatePrompt {
   
-  static let instance = SAUpdatePrompt()
+  static var instance = SAUpdatePrompt()
   
-  let logic: Logic
+  var logic: Logic
   
   init(_ logic: Logic = .init(service: AppVersionService())) {
     self.logic = logic
+  }
+  
+  public mutating func forceMajorUpgrade(_ bool: Bool) {
+    self.logic.forceMajorUpgrades = bool
   }
   
   public func showPrompt(title: String,
