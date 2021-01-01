@@ -27,7 +27,19 @@ public struct SAUpdatePrompt {
     SAUpdatePrompt.instance.logic.forceMajorUpgrades = forceMajor
     
     logic.check(for: bundleIdentifier, currentVersion: currentVersion) { response in
-      print(response)
+      
+      if !response.upgradeAvailable {
+        print("No Upgrade Available")
+        return
+      }
+      
+      if response.upgradeAvailable && response.forceUpgrade {
+        print("Force Upgrade Prompt")
+        return
+      }
+      
+      print("Soft Upgrade Prompt")
+      
     }
     
   }
