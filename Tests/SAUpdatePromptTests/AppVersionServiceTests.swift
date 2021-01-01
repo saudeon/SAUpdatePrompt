@@ -1,7 +1,7 @@
 import XCTest
 @testable import SAUpdatePrompt
 
-final class MockAppVersionService: AppVersionServiceProtocol {
+fileprivate final class MockAppVersionService: AppVersionServiceProtocol {
   
   var noResultsFailure: Bool = false
   var genericFailure: Bool = false

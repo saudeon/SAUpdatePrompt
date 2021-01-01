@@ -24,6 +24,8 @@
 		70470F07259E7AD500C8FC12 /* AppVersionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70470EF9259E7A7F00C8FC12 /* AppVersionServiceTests.swift */; };
 		70470F0D259E929400C8FC12 /* AppVersionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70470F0C259E929400C8FC12 /* AppVersionService.swift */; };
 		70470F13259E931900C8FC12 /* AppVersionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70470F12259E931900C8FC12 /* AppVersionResponse.swift */; };
+		70470F27259E9A2200C8FC12 /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70470F26259E9A2200C8FC12 /* Logic.swift */; };
+		70470F3E259E9E7800C8FC12 /* BusinessLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70470F34259E9DC500C8FC12 /* BusinessLogicTests.swift */; };
 		OBJ_24 /* SAUpdatePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* SAUpdatePrompt.swift */; };
 		OBJ_31 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_42 /* SAUpdatePromptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* SAUpdatePromptTests.swift */; };
@@ -52,6 +54,8 @@
 		70470EF9259E7A7F00C8FC12 /* AppVersionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionServiceTests.swift; sourceTree = "<group>"; };
 		70470F0C259E929400C8FC12 /* AppVersionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionService.swift; sourceTree = "<group>"; };
 		70470F12259E931900C8FC12 /* AppVersionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionResponse.swift; sourceTree = "<group>"; };
+		70470F26259E9A2200C8FC12 /* Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
+		70470F34259E9DC500C8FC12 /* BusinessLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessLogicTests.swift; sourceTree = "<group>"; };
 		OBJ_12 /* SAUpdatePromptTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAUpdatePromptTests.swift; sourceTree = "<group>"; };
 		OBJ_13 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_17 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -81,6 +85,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		70470F20259E99EB00C8FC12 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				70470F0C259E929400C8FC12 /* AppVersionService.swift */,
+				70470F12259E931900C8FC12 /* AppVersionResponse.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		70470F25259E9A1100C8FC12 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				70470F26259E9A2200C8FC12 /* Logic.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
 		OBJ_10 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				70470EF9259E7A7F00C8FC12 /* AppVersionServiceTests.swift */,
+				70470F34259E9DC500C8FC12 /* BusinessLogicTests.swift */,
 				OBJ_12 /* SAUpdatePromptTests.swift */,
 				OBJ_13 /* XCTestManifests.swift */,
 			);
@@ -134,8 +156,8 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_9 /* SAUpdatePrompt.swift */,
-				70470F0C259E929400C8FC12 /* AppVersionService.swift */,
-				70470F12259E931900C8FC12 /* AppVersionResponse.swift */,
+				70470F25259E9A1100C8FC12 /* Logic */,
+				70470F20259E99EB00C8FC12 /* Networking */,
 			);
 			name = SAUpdatePrompt;
 			path = Sources/SAUpdatePrompt;
@@ -225,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				70470F27259E9A2200C8FC12 /* Logic.swift in Sources */,
 				70470F13259E931900C8FC12 /* AppVersionResponse.swift in Sources */,
 				70470F0D259E929400C8FC12 /* AppVersionService.swift in Sources */,
 				OBJ_24 /* SAUpdatePrompt.swift in Sources */,
@@ -243,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				70470F3E259E9E7800C8FC12 /* BusinessLogicTests.swift in Sources */,
 				70470F07259E7AD500C8FC12 /* AppVersionServiceTests.swift in Sources */,
 				OBJ_42 /* SAUpdatePromptTests.swift in Sources */,
 				OBJ_43 /* XCTestManifests.swift in Sources */,
