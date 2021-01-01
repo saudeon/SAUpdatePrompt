@@ -26,9 +26,8 @@ public struct SAUpdatePrompt {
     
     SAUpdatePrompt.instance.logic.forceMajorUpgrades = forceMajor
     
-    logic.check(for: bundleIdentifier,
-                currentVersion: currentVersion) { (updateAvailable, forceUpgrade) in
-      
+    logic.check(for: bundleIdentifier, currentVersion: currentVersion) { response in
+      print(response)
     }
     
   }

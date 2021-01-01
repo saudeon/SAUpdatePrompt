@@ -1,6 +1,12 @@
 import Foundation
 
-typealias LogicClosure = (Bool, Bool?) -> Void
+internal struct LogicStruct {
+  let upgradeAvailable: Bool
+  let forceUpgrade: Bool
+  let nextVersion: String
+}
+
+typealias LogicClosure = (LogicStruct) -> Void
 
 protocol LogicProtocol {
   func check(for bundleIdentifier: String, currentVersion: String, completion: @escaping LogicClosure)
@@ -17,7 +23,7 @@ struct Logic: LogicProtocol {
     
     service.check(for: bundleIdentifier) { result in
       switch result {
-      case .failure: completion(false, nil)
+      case .failure: completion(.init(upgradeAvailable: false, forceUpgrade: false, nextVersion: currentVersion))
       case let .success(storeResult):
       
         let result = compareNumeric(currentVersion, storeResult.version)
@@ -28,14 +34,12 @@ struct Logic: LogicProtocol {
           let currentSplit = currentVersion.split(separator: ".")
           let storeSplit = storeResult.version.split(separator: ".")
           
-          if currentSplit[0] < storeSplit[0] &&
-              forceMajorUpgrades {
-            completion(true, forceMajorUpgrades)
+          if currentSplit[0] < storeSplit[0] {
+            completion(.init(upgradeAvailable: true, forceUpgrade: forceMajorUpgrades, nextVersion: storeResult.version))
             return
           }
-          completion(true, nil)
-          
-        default: completion(false, nil)
+          completion(.init(upgradeAvailable: true, forceUpgrade: false, nextVersion: storeResult.version))
+        default: completion(.init(upgradeAvailable: false, forceUpgrade: false, nextVersion: storeResult.version))
         }
         
       }
