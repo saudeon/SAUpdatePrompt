@@ -13,20 +13,18 @@ public struct SAUpdatePrompt {
     self.logic = logic
   }
   
-  public mutating func forceMajorUpgrade(_ bool: Bool) {
-    self.logic.forceMajorUpgrades = bool
-  }
-  
   public func showPrompt(title: String,
                          message: String,
-                         fullscreen: Bool? = false,
-                         forceMajor: Bool? = true,
+                         fullscreen: Bool = false,
+                         forceMajor: Bool = true,
                          cancelAction: cancelAction,
                          updateAction: updateAction) {
     
     guard let bundleInfo = Bundle.main.infoDictionary,
           let bundleIdentifier = bundleInfo["CFBundleIdentifier"] as? String,
           let currentVersion = bundleInfo["CFBundleShortVersionString"] as? String else { return }
+    
+    SAUpdatePrompt.instance.logic.forceMajorUpgrades = forceMajor
     
     logic.check(for: bundleIdentifier,
                 currentVersion: currentVersion) { (updateAvailable, forceUpgrade) in
