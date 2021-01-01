@@ -3,9 +3,9 @@ import UIKit
 public typealias cancelAction = (() -> Void)?
 public typealias updateAction = (() -> Void)?
 
-public struct SAUpdatePrompt {
+public struct UpdatePrompt {
   
-  static var instance = SAUpdatePrompt()
+  static var instance = UpdatePrompt()
   
   var logic: Logic
   
@@ -24,7 +24,7 @@ public struct SAUpdatePrompt {
           let bundleIdentifier = bundleInfo["CFBundleIdentifier"] as? String,
           let currentVersion = bundleInfo["CFBundleShortVersionString"] as? String else { return }
     
-    SAUpdatePrompt.instance.logic.forceMajorUpgrades = forceMajor
+    UpdatePrompt.instance.logic.forceMajorUpgrades = forceMajor
     
     logic.check(for: bundleIdentifier, currentVersion: currentVersion) { response in
       

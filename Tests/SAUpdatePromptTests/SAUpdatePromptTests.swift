@@ -1,10 +1,10 @@
 import XCTest
 @testable import SAUpdatePrompt
 
-final class SAUpdatePromptTests: XCTestCase {
+final class UpdatePromptTests: XCTestCase {
   
   func testPromptCreation() {
-    let sut = SAUpdatePrompt()
+    let sut = UpdatePrompt()
     
     sut.showPrompt(title: "Test Prompt", message: "Hello there.") {
       print("derp")
