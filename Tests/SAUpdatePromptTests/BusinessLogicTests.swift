@@ -74,7 +74,7 @@ final class LogicTests: XCTestCase {
     let service = MockAppVersionService(nextVersion: "1.2.0", minimumOsVersion: "13.0")
     let sut = Logic(service: service)
     
-    sut.check(for: "com.saupdateprompt.test", currentVersion: "1.0.0") { response in
+    sut.check(for: "com.saupdateprompt.test", currentVersion: "1.2.0") { response in
       if !response.upgradeAvailable && !response.forceUpgrade { testExpectation.fulfill() }
     }
     
