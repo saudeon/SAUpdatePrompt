@@ -46,7 +46,7 @@ final class LogicTests: XCTestCase {
     let sut = Logic(service: service)
     
     sut.check(for: "com.saupdateprompt.test", currentVersion: "1.0.0") { (available, forceUpgrade) in
-      if available && forceUpgrade == false { testExpectation.fulfill() }
+      if available && forceUpgrade == nil { testExpectation.fulfill() }
     }
     
     waitForExpectations(timeout: 5, handler: defaultExpectationHandler)
